@@ -19,4 +19,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('admin-page', function () {
+    return "Halaman untuk admin";
+})->middleware('role:admin')->name('admin.page');
+
+Route::get('user-page', function() {
+    return "Halaman untuk User";
+})->middleware('role:user')->name('user.page');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
